@@ -2,16 +2,16 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_ketaby/core/errors/failures.dart';
-import 'package:new_ketaby/feature/books/data/model/news/article.dart';
-import 'package:new_ketaby/feature/books/data/repository/book_repo.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_state.dart';
+import 'package:new_ketaby/feature/news/data/model/news/article.dart';
+import 'package:new_ketaby/feature/news/data/repository/news_repo.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_state.dart';
 
-class BooksCubit extends Cubit<BooksState> {
-  BooksCubit(this.bookRepository) : super(BooksInitialState());
+class NewsCubit extends Cubit<NewsState> {
+  NewsCubit(this.bookRepository) : super(BooksInitialState());
 
-  static BooksCubit get(BuildContext context) => BlocProvider.of(context);
+  static NewsCubit get(BuildContext context) => BlocProvider.of(context);
 
-  final BookRepository bookRepository;
+  final NewRepository bookRepository;
 
   bool isSearching = false;
   TextEditingController searchController = TextEditingController();

@@ -3,13 +3,13 @@ import 'package:dio/dio.dart';
 import 'package:new_ketaby/core/api/api_services.dart';
 import 'package:new_ketaby/core/api/end_points.dart';
 import 'package:new_ketaby/core/errors/failures.dart';
-import 'package:new_ketaby/feature/books/data/model/news/article.dart';
-import 'package:new_ketaby/feature/books/data/repository/book_repo.dart';
+import 'package:new_ketaby/feature/news/data/model/news/article.dart';
+import 'package:new_ketaby/feature/news/data/repository/news_repo.dart';
 
-class BookRepoImplementation extends BookRepository {
+class NewRepoImplementation extends NewRepository {
   final ApiServices apiServices;
 
-  BookRepoImplementation(this.apiServices);
+  NewRepoImplementation(this.apiServices);
 
   @override
   Future<Either<Failure, List<Article>>> getNews() async {

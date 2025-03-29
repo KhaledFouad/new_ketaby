@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:new_ketaby/core/utils/app_colors.dart' show AppColors;
-import 'package:new_ketaby/feature/books/presentation/view/books_view.dart';
+import 'package:new_ketaby/feature/news/presentation/view/news_view.dart';
 
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
@@ -35,7 +35,7 @@ class _LayoutState extends State<Layout> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: const <Widget>[BooksView()],
+          children: const <Widget>[NewsView()],
         ),
         bottomNavigationBar: WaterDropNavBar(
           waterDropColor: AppColors.primaryColor,

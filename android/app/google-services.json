@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "178473574390",
+    "project_id": "news-app-6d0d7",
+    "storage_bucket": "news-app-6d0d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178473574390:android:3445a914fbbd7d86f3b1d7",
+        "android_client_info": {
+          "package_name": "com.example.new_ketaby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR-CaGjVADYRgVWT3GXKmfvIKH3YMeXCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

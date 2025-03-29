@@ -2,38 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_ketaby/config/icons/icons_broken.dart';
 import 'package:new_ketaby/core/utils/app_colors.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_cubit.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_state.dart';
-import 'package:new_ketaby/feature/books/presentation/view/widgets/books_view_body.dart';
-import 'package:new_ketaby/feature/books/presentation/view/widgets/search_text_field.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_cubit.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_state.dart';
+import 'package:new_ketaby/feature/news/presentation/view/widgets/news_view_body.dart';
+import 'package:new_ketaby/feature/news/presentation/view/widgets/search_text_field.dart';
 
-class BooksView extends StatefulWidget {
-  const BooksView({super.key});
+class NewsView extends StatefulWidget {
+  const NewsView({super.key});
 
   @override
-  State<BooksView> createState() => _BooksViewState();
+  State<NewsView> createState() => _NewsViewState();
 }
 
-class _BooksViewState extends State<BooksView> {
+class _NewsViewState extends State<NewsView> {
   @override
   void initState() {
-    BooksCubit.get(context).getBooks();
+    NewsCubit.get(context).getBooks();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BooksCubit, BooksState>(
+    return BlocBuilder<NewsCubit, NewsState>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title:
-                BooksCubit.get(context).isSearching
+                NewsCubit.get(context).isSearching
                     ? SearchTextField(
-                      controller: BooksCubit.get(context).searchController,
+                      controller: NewsCubit.get(context).searchController,
                       onChange: (value) {
                         if (!value.startsWith(' ')) {
-                          BooksCubit.get(
+                          NewsCubit.get(
                             context,
                           ).getSearchedDoctorsList(bookName: value);
                         }
@@ -41,17 +41,17 @@ class _BooksViewState extends State<BooksView> {
                     )
                     : const Text('Books'),
             actions: [
-              BooksCubit.get(context).isSearching
+              NewsCubit.get(context).isSearching
                   ? IconButton(
                     onPressed: () {
-                      BooksCubit.get(context).stopSearch();
+                      NewsCubit.get(context).stopSearch();
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.clear, color: AppColors.white),
                   )
                   : IconButton(
                     onPressed: () {
-                      BooksCubit.get(context).startSearch(context);
+                      NewsCubit.get(context).startSearch(context);
                     },
                     icon: const Icon(IconBroken.Search, color: AppColors.white),
                   ),

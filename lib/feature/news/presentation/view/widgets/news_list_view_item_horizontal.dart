@@ -5,7 +5,7 @@ import 'package:new_ketaby/core/utils/app_colors.dart';
 import 'package:new_ketaby/core/utils/app_constants.dart';
 import 'package:new_ketaby/core/utils/app_styles.dart';
 import 'package:new_ketaby/core/widgets/custom_network_image.dart';
-import 'package:new_ketaby/feature/books/data/model/news/article.dart';
+import 'package:new_ketaby/feature/news/data/model/news/article.dart';
 
 class BooksListViewItemHorizontal extends StatelessWidget {
   const BooksListViewItemHorizontal({
@@ -21,7 +21,7 @@ class BooksListViewItemHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, Routes.bookDetailsView, arguments: book);
+        Navigator.pushNamed(context, Routes.newDetailsView, arguments: book);
       },
       child: Container(
         padding: EdgeInsets.all(AppConstants.padding10h),

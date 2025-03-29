@@ -1,32 +1,33 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_ketaby/config/routes/app_routes.dart';
 import 'package:new_ketaby/core/api/api_services_implementation.dart';
-import 'package:new_ketaby/feature/books/data/repository/book_repo_implementation.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_cubit.dart';
-import 'config/themes/app_theme.dart'; 
+import 'package:new_ketaby/feature/news/data/repository/news_repo_implementation.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_cubit.dart';
+import 'package:new_ketaby/firebase_options.dart';
+import 'config/themes/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(
           create:
-              (context) => BooksCubit(
-                BookRepoImplementation(ApiServicesImplementation()),
-              ),
+              (context) =>
+                  NewsCubit(NewRepoImplementation(ApiServicesImplementation())),
         ),
       ],
-      child: const KetabyApp(),
+      child: const NewsApp(),
     ),
   );
 }
 
-class KetabyApp extends StatelessWidget {
-  const KetabyApp({super.key});
+class NewsApp extends StatelessWidget {
+  const NewsApp({super.key});
 
   @override
   Widget build(BuildContext context) {

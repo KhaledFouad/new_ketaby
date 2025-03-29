@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_ketaby/core/utils/app_constants.dart';
 import 'package:new_ketaby/core/widgets/custom_error_widget.dart';
 import 'package:new_ketaby/core/widgets/loading_indicator_widget.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_cubit.dart';
-import 'package:new_ketaby/feature/books/presentation/cubit/books_state.dart';
-import 'package:new_ketaby/feature/books/presentation/view/widgets/books_list_view_item_horizontal.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_cubit.dart';
+import 'package:new_ketaby/feature/news/presentation/cubit/news_state.dart';
+import 'package:new_ketaby/feature/news/presentation/view/widgets/news_list_view_item_horizontal.dart';
 
 class BooksViewBody extends StatelessWidget {
   const BooksViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BooksCubit, BooksState>(
+    return BlocBuilder<NewsCubit, NewsState>(
       builder: (context, state) {
         if (state is BooksSuccessState ||
             state is GetSearchedBooksList ||
@@ -20,17 +20,17 @@ class BooksViewBody extends StatelessWidget {
           return ListView.separated(
             padding: EdgeInsets.all(AppConstants.defaultPadding),
             itemCount:
-                BooksCubit.get(context).searchController.text.isEmpty
-                    ? BooksCubit.get(context).products.length
-                    : BooksCubit.get(context).searchedBooksList.length,
+                NewsCubit.get(context).searchController.text.isEmpty
+                    ? NewsCubit.get(context).products.length
+                    : NewsCubit.get(context).searchedBooksList.length,
             physics: const BouncingScrollPhysics(),
             itemBuilder:
                 (context, index) => BooksListViewItemHorizontal(
                   index: index,
                   book:
-                      BooksCubit.get(context).searchController.text.isEmpty
-                          ? BooksCubit.get(context).products[index]
-                          : BooksCubit.get(context).searchedBooksList[index],
+                      NewsCubit.get(context).searchController.text.isEmpty
+                          ? NewsCubit.get(context).products[index]
+                          : NewsCubit.get(context).searchedBooksList[index],
                 ),
             separatorBuilder:
                 (context, index) => SizedBox(height: AppConstants.padding10h),

@@ -36,7 +36,7 @@ class OnBoardingViewBody extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacementNamed(
                           context,
-                          Routes.booksView,
+                          Routes.loginView,
                         );
                       },
                       child: Text(
