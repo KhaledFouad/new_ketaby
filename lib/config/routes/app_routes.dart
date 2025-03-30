@@ -4,6 +4,8 @@ import 'package:new_ketaby/core/animations/page_fade_transition.dart';
 import 'package:new_ketaby/core/animations/page_slide_transition.dart';
 import 'package:new_ketaby/core/api/api_services_implementation.dart';
 import 'package:new_ketaby/core/utils/app_strings.dart';
+import 'package:new_ketaby/feature/authentication/presentation/views/RegisterScreen.dart';
+import 'package:new_ketaby/feature/authentication/presentation/views/login_view.dart';
 import 'package:new_ketaby/feature/news/data/repository/news_repo_implementation.dart';
 import 'package:new_ketaby/feature/news/presentation/cubit/news_cubit.dart';
 import 'package:new_ketaby/feature/layout.dart';
@@ -37,12 +39,12 @@ class AppRoutes {
         );
       case Routes.registerView:
         return PageSlideTransition(
-          page: const LoginPage(),
+          page: const LoginScreen(),
           direction: AxisDirection.left,
         );
       case Routes.loginView:
         return PageSlideTransition(
-          page: const RegisterPage(),
+          page: const RegisterScreen(),
           direction: AxisDirection.left,
         );
       case Routes.layout:

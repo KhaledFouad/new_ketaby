@@ -13,13 +13,17 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.maxLength,
     this.textInputType,
+    required this.textInputAction,
     this.obscureText = false,
     this.prefixIcon,
     this.paddingForTop,
     this.paddingForBottom,
     this.maxLines,
     this.readOnly = false,
+    required TextInputType keyboardType,
+    this.onChanged,
   });
+  final void Function(String)? onChanged;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final String title;
@@ -33,6 +37,7 @@ class CustomTextField extends StatelessWidget {
   final double? paddingForBottom;
   final int? maxLines;
   final bool readOnly;
+  final TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +55,13 @@ class CustomTextField extends StatelessWidget {
             onTapOutside: (value) {
               FocusScope.of(context).unfocus();
             },
+            onChanged: onChanged,
             maxLines: maxLines ?? 1,
             controller: controller,
             keyboardType: textInputType,
             maxLength: maxLength,
             obscureText: obscureText,
+            textInputAction: textInputAction,
             validator: validator,
             decoration: InputDecoration(
               hintText: hintText,
