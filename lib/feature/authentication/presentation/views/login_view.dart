@@ -9,7 +9,7 @@ import 'package:new_ketaby/core/widgets/gradient_button.dart';
 import 'package:new_ketaby/feature/authentication/presentation/views/RegisterScreen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -57,39 +57,61 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future login() async {
-    if (valid1 && valid2 == true) {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
+    try {
+      if (valid1 && valid2) {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+
+        var snackBar = SnackBar(
+          content: Text(
+            "Login success",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.greenAccent,
+        );
+
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.pushNamed(context, Routes.layout);
+      } else {
+        var snackBar = SnackBar(
+          content: Text(
+            "Please enter valid credentials",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      if (e.code == 'invalid-credential' || e.code == 'user-not-found') {
+        errorMessage = "No user found with this email";
+      } else if (e.code == 'wrong-password') {
+        errorMessage = "Incorrect password";
+      } else if (e.code == 'invalid-email') {
+        errorMessage = "Invalid email format";
+      } else {
+        errorMessage = "Login failed. Please try again";
+      }
+
       var snackBar = SnackBar(
-        content: Text(
-          "Login success",
-          style: TextStyle(color: AppColors.white),
-        ),
-        backgroundColor: AppColors.greenAccent,
+        content: Text(errorMessage, style: TextStyle(color: AppColors.white)),
+        backgroundColor: AppColors.redAccent,
       );
-      // ignore: use_build_context_synchronously
+
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      // ignore: use_build_context_synchronously
-      Navigator.pushNamed(context, Routes.registerView);
-    } else if (emailController.text.trim().isEmpty) {
+    } catch (e) {
       var snackBar = SnackBar(
         content: Text(
-          "Please enter valid email",
+          "An unexpected error occurred",
           style: TextStyle(color: AppColors.white),
         ),
         backgroundColor: AppColors.redAccent,
       );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (valid2 != true) {
-      var snackBar = SnackBar(
-        content: Text(
-          "Please enter valid password",
-          style: TextStyle(color: AppColors.white),
-        ),
-        backgroundColor: AppColors.redAccent,
-      );
+
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }

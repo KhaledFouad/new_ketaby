@@ -22,7 +22,7 @@ class Routes {
   static const String layout = '/layout';
   static const String homeView = '/home_view';
   static const String newsView = '/news_view';
-  static const String newDetailsView = '/book_details_view';
+  static const String newDetailsView = '/news_details_view';
 }
 
 class AppRoutes {
@@ -39,12 +39,12 @@ class AppRoutes {
         );
       case Routes.registerView:
         return PageSlideTransition(
-          page: const LoginScreen(),
+          page: const RegisterScreen(),
           direction: AxisDirection.left,
         );
       case Routes.loginView:
         return PageSlideTransition(
-          page: const RegisterScreen(),
+          page: const LoginScreen(),
           direction: AxisDirection.left,
         );
       case Routes.layout:

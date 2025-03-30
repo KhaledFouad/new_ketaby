@@ -77,66 +77,96 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Future register() async {
-    if (passwordConfirmed()) {
+    try {
+      if (!passwordConfirmed()) {
+        var snackBar = SnackBar(
+          content: Text(
+            "Passwords do not match",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        return;
+      }
+
+      if (userNameController.text.trim().isEmpty) {
+        var snackBar = SnackBar(
+          content: Text(
+            "Please enter a valid username",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        return;
+      }
+
+      if (!RegExp(
+        r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+      ).hasMatch(emailController.text.trim())) {
+        var snackBar = SnackBar(
+          content: Text(
+            "Please enter a valid email (e.g., example@gmail.com)",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        return;
+      }
+
+      if (passwordController.text.length < 8) {
+        var snackBar = SnackBar(
+          content: Text(
+            "Password must be at least 8 characters",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        return;
+      }
+
+      // Attempt Firebase registration
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      Navigator.pushNamed(context, Routes.homeView);
+
+      // Success
       var snackBar = SnackBar(
         content: Text(
-          "Email created successfully",
+          "Account created successfully!",
           style: TextStyle(color: AppColors.white),
         ),
         backgroundColor: AppColors.greenAccent,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (passwordController.text.trim() !=
-        confirmPasswordController.text.trim()) {
+      Navigator.pushNamed(context, Routes.layout);
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      if (e.code == 'email-already-in-use') {
+        errorMessage =
+            "This email is already registered. Please log in instead.";
+      } else if (e.code == 'weak-password') {
+        errorMessage = "Password is too weak (min 8 characters).";
+      } else if (e.code == 'invalid-email') {
+        errorMessage = "Invalid email format.";
+      } else {
+        errorMessage = "Registration failed. Please try again.";
+      }
+
       var snackBar = SnackBar(
-        content: Text(
-          "password doesn't match",
-          style: TextStyle(color: AppColors.white),
-        ),
+        content: Text(errorMessage, style: TextStyle(color: AppColors.white)),
         backgroundColor: AppColors.redAccent,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (userNameController.text.trim().isEmpty) {
+    } catch (e) {
       var snackBar = SnackBar(
         content: Text(
-          "Please enter valid username",
-          style: TextStyle(color: AppColors.white),
-        ),
-        backgroundColor: AppColors.redAccent,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (emailController.text.trim().isEmpty) {
-      var snackBar = SnackBar(
-        content: Text(
-          "Please enter valid email",
-          style: TextStyle(color: AppColors.white),
-        ),
-        backgroundColor: AppColors.redAccent,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (!RegExp(
-      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9+_.-]+.[com]",
-    ).hasMatch(emailController.text.trim())) {
-      var snackBar = SnackBar(
-        content: Text(
-          "Please Enter Valid as example@gmail.com",
-          style: TextStyle(color: AppColors.white),
-        ),
-        backgroundColor: AppColors.redAccent,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if (passwordController.text.trim().isEmpty ||
-        confirmPasswordController.text.trim().isEmpty ||
-        valid3 != true ||
-        valid4 != true) {
-      var snackBar = SnackBar(
-        content: Text(
-          "Please enter valid password",
+          "An unexpected error occurred. Please try again.",
           style: TextStyle(color: AppColors.white),
         ),
         backgroundColor: AppColors.redAccent,
