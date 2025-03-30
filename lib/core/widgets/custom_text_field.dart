@@ -47,7 +47,7 @@ class CustomTextField extends StatelessWidget {
         Text(title, style: AppStyles.textStyle16),
         Padding(
           padding: EdgeInsets.only(
-            top: paddingForTop ?? AppConstants.defaultPadding,
+            top: paddingForTop ?? AppConstants.defaultPadding * 0.5,
             bottom: paddingForBottom ?? AppConstants.padding15h,
           ),
           child: TextFormField(

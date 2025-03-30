@@ -27,6 +27,7 @@ class _NewsViewState extends State<NewsView> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title:
                 NewsCubit.get(context).isSearching
                     ? SearchTextField(
@@ -35,11 +36,11 @@ class _NewsViewState extends State<NewsView> {
                         if (!value.startsWith(' ')) {
                           NewsCubit.get(
                             context,
-                          ).getSearchedDoctorsList(bookName: value);
+                          ).getSearchedNewsList(articleTitle: value);
                         }
                       },
                     )
-                    : const Text('Books'),
+                    : const Text('News'),
             actions: [
               NewsCubit.get(context).isSearching
                   ? IconButton(

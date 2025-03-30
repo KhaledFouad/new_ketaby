@@ -48,7 +48,7 @@ class AppConstants {
 
   static final OutlineInputBorder focusedBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(radius8w),
-    borderSide: BorderSide(width: 1.1.w, color: AppColors.primaryColor),
+    borderSide: BorderSide(width: 1.1.w, color: AppColors.greenAccent),
   );
 
   static final OutlineInputBorder enabledBorder = OutlineInputBorder(

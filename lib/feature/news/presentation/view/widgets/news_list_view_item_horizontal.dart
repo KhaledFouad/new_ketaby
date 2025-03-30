@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_ketaby/config/routes/app_routes.dart';
 import 'package:new_ketaby/core/utils/app_colors.dart';
 import 'package:new_ketaby/core/utils/app_constants.dart';
 import 'package:new_ketaby/core/utils/app_styles.dart';
 import 'package:new_ketaby/core/widgets/custom_network_image.dart';
 import 'package:new_ketaby/feature/news/data/model/news/article.dart';
 
-class BooksListViewItemHorizontal extends StatelessWidget {
-  const BooksListViewItemHorizontal({
+class NewsListViewItemHorizontal extends StatelessWidget {
+  const NewsListViewItemHorizontal({
     super.key,
-    required this.book,
+    required this.article,
     required this.index,
   });
 
-  final Article book;
+  final Article article;
   final int index;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, Routes.newDetailsView, arguments: book);
+        // Navigator.pushNamed(context, Routes.newDetailsView, arguments: article);
       },
       child: Container(
         padding: EdgeInsets.all(AppConstants.padding10h),
@@ -37,7 +36,7 @@ class BooksListViewItemHorizontal extends StatelessWidget {
               flex: 3,
               child: CustomNetworkImage(
                 borderRadius: AppConstants.radius8sp,
-                image: book.urlToImage!,
+                image: article.urlToImage!,
                 color: AppColors.primaryColor.withOpacity(0.9),
                 textColor: AppColors.white,
                 boxfit: BoxFit.cover,
@@ -55,7 +54,7 @@ class BooksListViewItemHorizontal extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            book.title!,
+                            article.title!,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: AppStyles.textStyle18.copyWith(
@@ -66,7 +65,7 @@ class BooksListViewItemHorizontal extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      book.source!.name!,
+                      article.source!.name!,
                       style: AppStyles.textStyle15.copyWith(
                         color: AppColors.grey,
                       ),

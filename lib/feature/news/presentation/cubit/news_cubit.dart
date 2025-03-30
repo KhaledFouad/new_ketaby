@@ -7,7 +7,7 @@ import 'package:new_ketaby/feature/news/data/repository/news_repo.dart';
 import 'package:new_ketaby/feature/news/presentation/cubit/news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
-  NewsCubit(this.bookRepository) : super(BooksInitialState());
+  NewsCubit(this.bookRepository) : super(NewsInitialState());
 
   static NewsCubit get(BuildContext context) => BlocProvider.of(context);
 
@@ -19,30 +19,32 @@ class NewsCubit extends Cubit<NewsState> {
   List<Article> products = [];
 
   Future<void> getBooks() async {
-    emit(BooksLoadingState());
+    emit(NewsLoadingState());
     Either<Failure, List<Article>> result;
     result = await bookRepository.getNews();
     result.fold(
       (failure) {
-        emit(BooksFailureState(failure.error));
+        emit(NewsFailureState(failure.error));
       },
       (products) {
         this.products = products;
 
         print(products[0].title);
-        emit(BooksSuccessState(products));
+        emit(NewsSuccessState(products));
       },
     );
   }
 
-  List<Article> searchedBooksList = [];
+  List<Article> searchedArticlesList = [];
 
-  void getSearchedDoctorsList({required String bookName}) {
-    searchedBooksList =
+  void getSearchedNewsList({required String articleTitle}) {
+    searchedArticlesList =
         products.where((element) {
-          return element.title!.toLowerCase().contains(bookName.toLowerCase());
+          return element.title!.toLowerCase().contains(
+            articleTitle.toLowerCase(),
+          );
         }).toList();
-    emit(GetSearchedBooksList());
+    emit(GetSearchedNewsList());
   }
 
   void startSearch(BuildContext context) {

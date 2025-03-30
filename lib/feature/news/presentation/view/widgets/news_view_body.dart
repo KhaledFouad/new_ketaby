@@ -14,28 +14,28 @@ class BooksViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NewsCubit, NewsState>(
       builder: (context, state) {
-        if (state is BooksSuccessState ||
-            state is GetSearchedBooksList ||
+        if (state is NewsSuccessState ||
+            state is GetSearchedNewsList ||
             state is ChangeIsSearchingState) {
           return ListView.separated(
             padding: EdgeInsets.all(AppConstants.defaultPadding),
             itemCount:
                 NewsCubit.get(context).searchController.text.isEmpty
                     ? NewsCubit.get(context).products.length
-                    : NewsCubit.get(context).searchedBooksList.length,
+                    : NewsCubit.get(context).searchedArticlesList.length,
             physics: const BouncingScrollPhysics(),
             itemBuilder:
-                (context, index) => BooksListViewItemHorizontal(
+                (context, index) => NewsListViewItemHorizontal(
                   index: index,
-                  book:
+                  article:
                       NewsCubit.get(context).searchController.text.isEmpty
                           ? NewsCubit.get(context).products[index]
-                          : NewsCubit.get(context).searchedBooksList[index],
+                          : NewsCubit.get(context).searchedArticlesList[index],
                 ),
             separatorBuilder:
                 (context, index) => SizedBox(height: AppConstants.padding10h),
           );
-        } else if (state is BooksFailureState) {
+        } else if (state is NewsFailureState) {
           return CustomErrorWidget(error: state.error);
         } else {
           return LoadingIndicatorWidget();
