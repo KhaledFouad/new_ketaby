@@ -16,10 +16,10 @@ class SplashViewBody extends StatelessWidget {
       splash: Lottie.asset('assets/lottie_animations/splash.json'),
       backgroundColor: AppColors.white,
       splashIconSize: 300,
-      duration: 2000,
+      duration: 3500,
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.leftToRightWithFade,
-      animationDuration: const Duration(milliseconds: 355),
+      animationDuration: const Duration(milliseconds: 600),
       nextScreen: const OnBoardingView(),
     );
   }

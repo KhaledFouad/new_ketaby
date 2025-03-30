@@ -12,27 +12,6 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  // @override
-  // void initState() {
-  //   navigateToOnBoardingView();
-  //   super.initState();
-  // }
-
-  // void navigateToOnBoardingView() {
-  //   Future.delayed(const Duration(seconds: 3)).then((value) {
-  //     if (CacheHelper.getBoolean(key: 'onBoarding') ?? false) {
-  //       // if (AppConstants.token.isNotEmpty) {
-  //       //   return Navigator.pushReplacementNamed(context, Routes.layoutView);
-  //       // } else {
-  //       //   return Navigator.pushReplacementNamed(context, Routes.loginView);
-  //       // }
-  //     } else {
-  //       return Navigator.pushReplacementNamed(context, Routes.onBoardingView);
-  //     }
-  //     //return Navigator.pushReplacementNamed(context, Routes.loginView);
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

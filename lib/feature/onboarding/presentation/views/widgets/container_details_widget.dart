@@ -43,7 +43,7 @@ class ContainerDetailsWidget extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 25.h),
                   child: Text(
-                    'Ketaby App',
+                    'News App',
                     style: AppStyles.textStyle30.copyWith(
                       color: AppColors.black,
                     ),

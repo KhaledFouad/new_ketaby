@@ -126,7 +126,7 @@ class _AuthFormState extends State<AuthForm> {
                   keyboardType: TextInputType.emailAddress,
                   hintText: "Email",
                   prefixIcon: Icon(
-                    Icons.person_outline_rounded,
+                    Icons.email_outlined,
                     size: 30,
                     color: AppColors.grey500,
                   ),

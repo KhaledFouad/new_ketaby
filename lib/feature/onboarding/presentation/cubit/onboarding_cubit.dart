@@ -10,9 +10,9 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   final PageController pageController = PageController();
 
   List<String> titles = [
-    "Welcome to Ketaby, your gateway to a world of books.",
-    "With ketaby, you can browse, buy, and build your digital library effortlessly.",
-    "Let's embark on a literary adventure together!",
+    "Stay informed with News App, your window to breaking stories and global updates.",
+    "Discover the world at your fingertips trust News App for accurate, timely, and diverse news coverage.",
+    "From headlines to deep dives, News App brings clarity to the chaos of today’s news.",
   ];
 
   bool isLast = false;
