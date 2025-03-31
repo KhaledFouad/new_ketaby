@@ -15,7 +15,6 @@ class NewsCubit extends Cubit<NewsState> {
 
   bool isSearching = false;
   TextEditingController searchController = TextEditingController();
-
   List<Article> products = [];
 
   Future<void> getBooks() async {
