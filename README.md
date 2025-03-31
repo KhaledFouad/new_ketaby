@@ -1,16 +1,30 @@
-# new_ketaby
+# News App
 
-A new Flutter project.
+A Flutter news app that fetches and displays the latest articles with instant search functionality. Built with clean architecture and BLoC state management, it offers smooth browsing, keyword searches, and offline reading. The responsive design works perfectly on mobile.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- splash and onboarding with animation 
+- Login and Register with Firebase 
+- show all updated news 
+- Searching for a specific article 
 
-A few resources to get you started if this is your first Flutter project:
+## Demo
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+### Prerequisites
+
+- Flutter SDK (version 3.19.5 or higher)
+- Dart (version 3.3.0 or higher)
+- Android Studio/Xcode (for mobile builds)
+- VS Code/Android Studio (with Flutter plugin)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/flutter-app.git
+   cd flutter-app
