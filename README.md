@@ -11,7 +11,7 @@ A Flutter news app that fetches and displays the latest articles with instant se
 
 ## Demo
 
-[![Demo Video](https://drive.google.com/file/d/1PiRiSb_0mcWoJs3zBewhT9C-8YOUNwCe/view?usp=drivesdk )]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://drive.google.com/file/d/1PiRiSb_0mcWoJs3zBewhT9C-8YOUNwCe/view?usp=drivesdk )
+(https://drive.google.com/file/d/1PiRiSb_0mcWoJs3zBewhT9C-8YOUNwCe/view?usp=drivesdk )
 
 ## Installation
 
