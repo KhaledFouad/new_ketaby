@@ -28,3 +28,13 @@ A Flutter news app that fetches and displays the latest articles with instant se
    ```bash
    git clone https://github.com/yourusername/flutter-app.git
    cd flutter-app
+   
+2. getInstall dependencies:
+   ```bash
+   Flutter pub get
+  
+
+3. Run App:
+   ```bash
+   Flutter run
+
