@@ -40,11 +40,16 @@ A Flutter news app that fetches and displays the latest articles with instant se
 
 
 ## Implementation Approach
-- Architecture
-  - Clean Architecture with separation of concerns
-  - State Management: Bloc
-  - API: https://newsapi.org/docs/get-started
-  - Authentication: Firebase
+### 🏗️ Architecture  
+**Modular Clean Architecture** with:  
+  - `core/`: Domain models & abstractions  
+  - `config/`: Infrastructure setup  
+  - `features/`: Scoped feature modules  
+
+ - Clean Architecture with separation of concerns
+ - State Management: Bloc
+ - API: https://newsapi.org/docs/get-started
+ - Authentication: Firebase
 
 ## Packages Used
   - flutter_screenutil: for responsive screens
