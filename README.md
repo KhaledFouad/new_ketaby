@@ -11,7 +11,7 @@ A Flutter news app that fetches and displays the latest articles with instant se
 
 ## Demo
 
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Demo Video]]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://drive.google.com/file/d/1PiRiSb_0mcWoJs3zBewhT9C-8YOUNwCe/view?usp=drivesdk ))
 
 ## Installation
 
@@ -29,7 +29,7 @@ A Flutter news app that fetches and displays the latest articles with instant se
    git clone https://github.com/yourusername/flutter-app.git
    cd flutter-app
    
-2. getInstall dependencies:
+2. Install dependencies:
    ```bash
    Flutter pub get
   
@@ -38,3 +38,27 @@ A Flutter news app that fetches and displays the latest articles with instant se
    ```bash
    Flutter run
 
+
+## Implementation Approach
+- Architecture
+  Clean Architecture with separation of concerns
+  State Management: Bloc
+  API: https://newsapi.org/docs/get-started
+  Authentication: Firebase
+
+- Packages Used
+  flutter_screenutil: for responsive screens
+  smooth_page_indicator: for loading indicators
+  dio: for fetching data from api
+  flutter_bloc: for handleing state managmnet 
+  Lottie: for animated splash screen
+  animated_splash_screen: for animated splash screen
+  flutter_launcher_icons: handleing logo
+  firebase_core: connect my app with Firebase
+  firebase_auth: implementing Authentication by Firebase
+  url_launcher: launching the article URL
+
+- Key Features Implementation
+  Feature 1: How you implemented it
+  Feature 2: Challenges faced and solutions
+  Responsive Design: How you handled different screen sizes
