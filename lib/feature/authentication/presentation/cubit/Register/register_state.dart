@@ -1,6 +1,17 @@
-part of 'register_cubit.dart';
+abstract class RegisterState {}
 
-@immutable
-sealed class RegisterState {}
+class RegisterInitialState extends RegisterState {}
 
-final class RegisterInitial extends RegisterState {}
+class RegisterLoadingState extends RegisterState {}
+
+class RegisterSuccessState extends RegisterState {}
+
+class RegisterFailureState extends RegisterState {
+  final String error;
+
+  RegisterFailureState(this.error);
+}
+
+class RegisterChangePasswordVisibilityState extends RegisterState {}
+
+class RegisterChangeConfirmPasswordVisibilityState extends RegisterState {}

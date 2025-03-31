@@ -2,10 +2,11 @@ import 'package:flutter/widgets.dart';
 
 abstract class AuthenticationRepository {
   Future userRegister({
-    required String email,
-    required String password,
-    required String confirmPassword,
-    required String name,
+    required BuildContext context,
+    required TextEditingController name,
+    required TextEditingController emailController,
+    required TextEditingController passwordController,
+    required TextEditingController confirmPassword,
   });
   Future<dynamic> userLogin({
     required BuildContext context,

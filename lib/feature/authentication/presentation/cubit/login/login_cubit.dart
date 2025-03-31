@@ -14,8 +14,6 @@ class LoginCubit extends Cubit<LoginState> {
     text: "123456789",
   );
 
-  var formKey = GlobalKey<FormState>();
-
   static LoginCubit get(context) => BlocProvider.of(context);
 
   bool isShowPassword = true;

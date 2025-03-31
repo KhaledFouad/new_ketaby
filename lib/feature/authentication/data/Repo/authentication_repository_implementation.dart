@@ -68,11 +68,58 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
 
   @override
   Future userRegister({
-    required String email,
-    required String password,
-    required String confirmPassword,
-    required String name,
-  }) {
-    throw UnimplementedError();
+    required BuildContext context,
+    required TextEditingController name,
+    required TextEditingController emailController,
+    required TextEditingController passwordController,
+    required TextEditingController confirmPassword,
+  }) async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Registration successful",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.greenAccent,
+        ),
+      );
+
+      Navigator.pushReplacementNamed(context, Routes.newsView);
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+
+      if (e.code == 'email-already-in-use') {
+        errorMessage = "This email is already registered";
+      } else if (e.code == 'weak-password') {
+        errorMessage = "Password is too weak (min 8 characters)";
+      } else if (e.code == 'invalid-email') {
+        errorMessage = "Invalid email format";
+      } else {
+        errorMessage = "Registration failed. Please try again";
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(errorMessage, style: TextStyle(color: AppColors.white)),
+          backgroundColor: AppColors.redAccent,
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "An unexpected error occurred",
+            style: TextStyle(color: AppColors.white),
+          ),
+          backgroundColor: AppColors.redAccent,
+        ),
+      );
+    }
   }
 }

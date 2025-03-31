@@ -13,7 +13,3 @@ class LoginFailureState extends LoginState {
 }
 
 class LoginChangePasswordVisibilityState extends LoginState {}
-
-class LoginChangeGenderState extends LoginState {}
-
-class LoginChangeKeepMeLoggedInState extends LoginState {}
