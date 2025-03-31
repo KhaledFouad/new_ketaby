@@ -41,22 +41,22 @@ A Flutter news app that fetches and displays the latest articles with instant se
 
 ## Implementation Approach
 - Architecture
-  Clean Architecture with separation of concerns
-  State Management: Bloc
-  API: https://newsapi.org/docs/get-started
-  Authentication: Firebase
+  - Clean Architecture with separation of concerns
+  - State Management: Bloc
+  - API: https://newsapi.org/docs/get-started
+  - Authentication: Firebase
 
-- Packages Used
-  flutter_screenutil: for responsive screens
-  smooth_page_indicator: for loading indicators
-  dio: for fetching data from api
-  flutter_bloc: for handleing state managmnet 
-  Lottie: for animated splash screen
-  animated_splash_screen: for animated splash screen
-  flutter_launcher_icons: handleing logo
-  firebase_core: connect my app with Firebase
-  firebase_auth: implementing Authentication by Firebase
-  url_launcher: launching the article URL
+## Packages Used
+  - flutter_screenutil: for responsive screens
+  - smooth_page_indicator: for loading indicators
+  - dio: for fetching data from api
+  - flutter_bloc: for handleing state managmnet 
+  - Lottie: for animated splash screen
+  - animated_splash_screen: for animated splash screen
+  - flutter_launcher_icons: handleing logo
+  - firebase_core: connect my app with Firebase
+  - firebase_auth: implementing Authentication by Firebase
+  - url_launcher: launching the article URL
 
 - Key Features Implementation
   Feature 1: How you implemented it
