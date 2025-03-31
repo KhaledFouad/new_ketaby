@@ -61,7 +61,3 @@ A Flutter news app that fetches and displays the latest articles with instant se
   - firebase_auth: implementing Authentication by Firebase
   - url_launcher: launching the article URL
 
-- Key Features Implementation
-  Feature 1: How you implemented it
-  Feature 2: Challenges faced and solutions
-  Responsive Design: How you handled different screen sizes
