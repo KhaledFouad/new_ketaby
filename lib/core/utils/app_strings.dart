@@ -7,12 +7,9 @@ class AppStrings {
   static const String register = 'Register';
   static const String loginTitle = 'Welcome Back!';
   static const String loginSubtitle = 'Login to access your books E-shop';
-  static const String create = 'Create';
-  static const String update = 'Update';
   static const String email = 'Email';
   static const String enterEmail = 'Enter your email';
   static const String password = 'password';
   static const String enterPassword = 'Enter your password';
   static const String keepMeLoggedIn = 'Keep me logged in';
-  static const String viewAll = 'View All';
 }

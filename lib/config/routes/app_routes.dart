@@ -19,7 +19,6 @@ class Routes {
   static const String registerView = '/register_view';
   static const String loginView = '/login_view';
   static const String newsView = '/news_view';
-  static const String newDetailsView = '/news_details_view';
 }
 
 class AppRoutes {
