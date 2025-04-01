@@ -26,7 +26,7 @@ A Flutter news app that fetches and displays the latest articles with instant se
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/flutter-app.git
+   git clone   https://github.com/KhaledFouad/news_App.git
    cd flutter-app
    
 2. Install dependencies:
